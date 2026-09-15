@@ -1,1 +1,2403 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+<meta name="theme-color" content="#050711"><title>M POPAL EARTH • 360°</title><style>
+
+/* =========================================================
+   M POPAL EARTH
+   MAIN DESIGN SYSTEM
+   ========================================================= */
+
+:root{
+    --space:#03050c;
+    --space2:#080b18;
+
+    --cyan:#00eaff;
+    --green:#39ffb0;
+    --violet:#9d5cff;
+    --gold:#ffd166;
+
+    --white:#ffffff;
+    --glass:rgba(255,255,255,.055);
+    --glass2:rgba(255,255,255,.095);
+
+    --line:rgba(255,255,255,.16);
+
+    --radius:24px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            #101a38 0%,
+            #050711 38%,
+            #010207 100%
+        );
+
+    color:white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    touch-action:none;
+}
+
+
+/* =========================================================
+   MAIN APP
+   ========================================================= */
+
+#app{
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    isolation:isolate;
+}
+
+
+/* =========================================================
+   SPACE BACKGROUND
+   ========================================================= */
+
+.space-layer{
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+}
+
+
+/* distant stars */
+
+.stars{
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9) 0 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+        92px 92px;
+
+    opacity:.42;
+}
+
+
+/* green/cyan stars */
+
+.stars-green{
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(57,255,176,.85) 0 1px,
+            transparent 1.6px
+        );
+
+    background-size:
+        157px 157px;
+
+    background-position:
+        40px 75px;
+
+    opacity:.25;
+}
+
+
+/* violet stars */
+
+.stars-violet{
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(157,92,255,.9) 0 1px,
+            transparent 1.7px
+        );
+
+    background-size:
+        211px 211px;
+
+    background-position:
+        90px 30px;
+
+    opacity:.22;
+}
+
+
+/* =========================================================
+   COLOR AURORA
+   ========================================================= */
+
+.aurora{
+    position:absolute;
+
+    width:75vw;
+    height:75vw;
+
+    max-width:850px;
+    max-height:850px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,234,255,.12),
+            transparent 55%
+        );
+
+    filter:blur(35px);
+
+    animation:
+        auroraMove 7s ease-in-out infinite alternate;
+}
+
+@keyframes auroraMove{
+
+    0%{
+        transform:
+            translate(-50%,-50%)
+            scale(.88);
+
+        opacity:.55;
+    }
+
+    100%{
+        transform:
+            translate(-50%,-50%)
+            scale(1.12);
+
+        opacity:1;
+    }
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.topbar{
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+
+    height:82px;
+
+    padding:
+        18px
+        24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    z-index:50;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(1,2,7,.82),
+            rgba(1,2,7,.30),
+            transparent
+        );
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo{
+    user-select:none;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    letter-spacing:6px;
+
+    color:white;
+
+    text-shadow:
+        0 0 8px white,
+        0 0 18px var(--cyan),
+        0 0 32px rgba(57,255,176,.45);
+}
+
+.logo-sub{
+    margin-top:5px;
+
+    font-size:7px;
+
+    letter-spacing:4px;
+
+    color:
+        rgba(255,255,255,.58);
+}
+
+
+/* =========================================================
+   MENU BUTTON
+   ========================================================= */
+
+.menu-button{
+    position:relative;
+
+    width:48px;
+    height:48px;
+
+    border-radius:17px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.34);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,234,255,.10),
+            rgba(157,92,255,.08),
+            rgba(255,209,102,.06)
+        );
+
+    box-shadow:
+        0 0 16px rgba(0,234,255,.12),
+        inset 0 0 18px rgba(255,255,255,.035);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:5px;
+
+    cursor:pointer;
+
+    transition:
+        transform .25s,
+        border-color .25s,
+        box-shadow .25s;
+}
+
+.menu-button:hover{
+    transform:
+        translateY(-2px)
+        scale(1.04);
+
+    border-color:
+        rgba(255,255,255,.72);
+
+    box-shadow:
+        0 0 24px rgba(0,234,255,.28),
+        0 0 30px rgba(157,92,255,.18);
+}
+
+.menu-button:active{
+    transform:scale(.94);
+}
+
+.menu-line{
+    width:19px;
+
+    height:2px;
+
+    border-radius:5px;
+
+    background:white;
+
+    box-shadow:
+        0 0 7px white,
+        0 0 13px var(--cyan);
+}
+
+
+/* =========================================================
+   EARTH AREA
+   ========================================================= */
+
+#earth-stage{
+    position:absolute;
+
+    inset:0;
+
+    z-index:10;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+
+/* Three.js will be placed here */
+
+#earth-container{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+}
+
+
+/* =========================================================
+   EARTH DECORATIVE RINGS
+   ========================================================= */
+
+.earth-ring{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:
+        min(88vw,780px);
+
+    height:
+        min(25vw,220px);
+
+    max-height:80vh;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-17deg);
+
+    border:
+        1px solid
+        rgba(255,255,255,.42);
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 8px rgba(255,255,255,.45),
+        0 0 24px rgba(0,234,255,.28);
+
+    pointer-events:none;
+}
+
+.earth-ring.two{
+    width:
+        min(92vw,820px);
+
+    height:
+        min(34vw,285px);
+
+    transform:
+        translate(-50%,-50%)
+        rotate(19deg);
+
+    border-color:
+        rgba(157,92,255,.32);
+
+    box-shadow:
+        0 0 22px rgba(157,92,255,.20);
+}
+
+.earth-ring.three{
+    width:
+        min(78vw,690px);
+
+    height:
+        min(18vw,160px);
+
+    transform:
+        translate(-50%,-50%)
+        rotate(65deg);
+
+    border-color:
+        rgba(57,255,176,.22);
+
+    box-shadow:
+        0 0 20px rgba(57,255,176,.14);
+}
+
+
+/* =========================================================
+   WHITE EDGE
+   ========================================================= */
+
+.edge-glow{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:
+        min(73vw,680px);
+
+    height:
+        min(73vw,680px);
+
+    max-width:74vh;
+    max-height:74vh;
+
+    transform:
+        translate(-50%,-50%);
+
+    border:
+        2px solid
+        rgba(255,255,255,.80);
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 7px white,
+        0 0 18px rgba(255,255,255,.78),
+        0 0 36px rgba(0,234,255,.48),
+        0 0 58px rgba(157,92,255,.22);
+
+    pointer-events:none;
+
+    z-index:20;
+}
+
+
+/* =========================================================
+   EARTH LABEL
+   ========================================================= */
+
+.earth-label{
+    position:absolute;
+
+    left:50%;
+    bottom:92px;
+
+    transform:
+        translateX(-50%);
+
+    z-index:30;
+
+    text-align:center;
+
+    pointer-events:none;
+
+    white-space:nowrap;
+}
+
+.earth-label-main{
+    font-size:11px;
+
+    letter-spacing:7px;
+
+    font-weight:800;
+
+    text-shadow:
+        0 0 7px white,
+        0 0 17px var(--cyan),
+        0 0 25px var(--violet);
+}
+
+.earth-label-sub{
+    margin-top:7px;
+
+    font-size:7px;
+
+    letter-spacing:3px;
+
+    color:
+        rgba(255,255,255,.48);
+}
+
+
+/* =========================================================
+   CONTROL HINT
+   ========================================================= */
+
+.control-hint{
+    position:absolute;
+
+    left:50%;
+    bottom:27px;
+
+    transform:
+        translateX(-50%);
+
+    z-index:30;
+
+    color:
+        rgba(255,255,255,.58);
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    white-space:nowrap;
+
+    text-shadow:
+        0 0 10px rgba(0,234,255,.35);
+}
+
+
+/* =========================================================
+   SEARCH BUTTON
+   ========================================================= */
+
+.search-button{
+    position:absolute;
+
+    left:24px;
+    bottom:26px;
+
+    width:48px;
+    height:48px;
+
+    z-index:45;
+
+    border-radius:17px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.30);
+
+    background:
+        rgba(255,255,255,.055);
+
+    color:white;
+
+    font-size:19px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 18px rgba(0,234,255,.13);
+
+    backdrop-filter:blur(10px);
+
+    transition:.25s;
+}
+
+.search-button:hover{
+    transform:scale(1.06);
+
+    border-color:white;
+
+    box-shadow:
+        0 0 25px rgba(0,234,255,.35);
+}
+
+
+/* =========================================================
+   SEARCH PANEL
+   ========================================================= */
+
+.search-panel{
+    position:absolute;
+
+    left:20px;
+    top:90px;
+
+    width:
+        min(390px,calc(100vw - 40px));
+
+    z-index:100;
+
+    padding:18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.22);
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(4,8,20,.96),
+            rgba(8,7,25,.94)
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.55),
+        0 0 30px rgba(0,234,255,.10);
+
+    backdrop-filter:
+        blur(25px);
+
+    opacity:0;
+
+    transform:
+        translateY(-15px)
+        scale(.97);
+
+    pointer-events:none;
+
+    transition:.3s;
+}
+
+.search-panel.open{
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    pointer-events:auto;
+}
+
+.search-title{
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:
+        rgba(255,255,255,.55);
+
+    margin-bottom:12px;
+}
+
+.search-row{
+    display:flex;
+
+    gap:8px;
+}
+
+.search-input{
+    flex:1;
+
+    min-width:0;
+
+    height:45px;
+
+    border-radius:14px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    outline:none;
+
+    background:
+        rgba(255,255,255,.06);
+
+    color:white;
+
+    padding:
+        0 14px;
+
+    font-size:13px;
+}
+
+.search-input::placeholder{
+    color:
+        rgba(255,255,255,.38);
+}
+
+.search-go{
+    width:48px;
+
+    border:0;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--violet)
+        );
+
+    color:#02030a;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.search-results{
+    margin-top:12px;
+
+    max-height:190px;
+
+    overflow:auto;
+}
+
+.search-result{
+    padding:12px;
+
+    margin-top:6px;
+
+    border-radius:13px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    cursor:pointer;
+}
+
+.search-result strong{
+    display:block;
+
+    font-size:12px;
+
+    color:white;
+}
+
+.search-result span{
+    display:block;
+
+    margin-top:4px;
+
+    font-size:8px;
+
+    color:
+        rgba(255,255,255,.48);
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================================
+   SIDE MENU
+   ========================================================= */
+
+.menu-panel{
+    position:absolute;
+
+    right:-430px;
+    top:0;
+
+    width:
+        min(400px,90vw);
+
+    height:100%;
+
+    z-index:200;
+
+    padding:105px 30px 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(3,6,16,.98),
+            rgba(9,5,24,.97)
+        );
+
+    border-left:
+        1px solid
+        rgba(255,255,255,.24);
+
+    box-shadow:
+        -25px 0 70px rgba(0,0,0,.65),
+        -5px 0 35px rgba(0,234,255,.10);
+
+    backdrop-filter:
+        blur(28px);
+
+    transition:
+        right .45s cubic-bezier(.2,.8,.2,1);
+
+    overflow-y:auto;
+}
+
+.menu-panel.open{
+    right:0;
+}
+
+.menu-close{
+    position:absolute;
+
+    right:24px;
+    top:24px;
+
+    width:44px;
+    height:44px;
+
+    border-radius:15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.30);
+
+    background:
+        rgba(255,255,255,.055);
+
+    color:white;
+
+    font-size:21px;
+
+    cursor:pointer;
+}
+
+.menu-heading{
+    font-size:9px;
+
+    letter-spacing:5px;
+
+    color:
+        rgba(255,255,255,.40);
+
+    margin-bottom:8px;
+}
+
+.menu-name{
+    font-size:25px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    text-shadow:
+        0 0 12px var(--cyan),
+        0 0 25px var(--violet);
+
+    margin-bottom:25px;
+}
+
+.menu-item{
+    display:block;
+
+    width:100%;
+
+    padding:17px 15px;
+
+    margin-top:9px;
+
+    border-radius:17px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.045),
+            rgba(0,234,255,.025)
+        );
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.menu-item:hover{
+    transform:
+        translateX(-5px);
+
+    border-color:
+        rgba(255,255,255,.35);
+
+    box-shadow:
+        0 0 22px rgba(0,234,255,.14);
+
+    text-shadow:
+        0 0 10px var(--cyan);
+}
+
+
+/* =========================================================
+   INFO / CHAT PANEL
+   ========================================================= */
+
+.info-panel{
+    position:absolute;
+
+    left:50%;
+    bottom:-520px;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        min(720px,calc(100vw - 30px));
+
+    max-height:
+        min(470px,70vh);
+
+    z-index:150;
+
+    padding:23px;
+
+    overflow:auto;
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    border-radius:
+        28px 28px 20px 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(5,10,22,.97),
+            rgba(12,7,27,.96)
+        );
+
+    box-shadow:
+        0 -15px 65px rgba(0,0,0,.65),
+        0 0 35px rgba(57,255,176,.08);
+
+    backdrop-filter:
+        blur(25px);
+
+    transition:
+        bottom .45s cubic-bezier(.2,.8,.2,1);
+}
+
+.info-panel.open{
+    bottom:20px;
+}
+
+.info-top{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:20px;
+}
+
+.info-title{
+    font-size:17px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+}
+
+.info-close{
+    width:38px;
+    height:38px;
+
+    border-radius:13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.20);
+
+    background:
+        rgba(255,255,255,.05);
+
+    color:white;
+
+    cursor:pointer;
+}
+
+.info-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:10px;
+}
+
+.info-card{
+    padding:16px;
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+}
+
+.info-card b{
+    display:block;
+
+    color:
+        var(--cyan);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-bottom:7px;
+}
+
+.info-card span{
+    font-size:12px;
+
+    color:
+        rgba(255,255,255,.78);
+
+    line-height:1.55;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:600px){
+
+    .topbar{
+        height:68px;
+
+        padding:
+            12px 15px;
+    }
+
+    .logo{
+        font-size:10px;
+
+        letter-spacing:4px;
+    }
+
+    .logo-sub{
+        font-size:6px;
+
+        letter-spacing:3px;
+    }
+
+    .menu-button{
+        width:42px;
+        height:42px;
+
+        border-radius:14px;
+    }
+
+    .edge-glow{
+        width:74vw;
+        height:74vw;
+
+        max-width:none;
+        max-height:none;
+    }
+
+    .earth-ring{
+        width:92vw;
+        height:27vw;
+    }
+
+    .earth-ring.two{
+        width:95vw;
+        height:34vw;
+    }
+
+    .earth-label{
+        bottom:72px;
+    }
+
+    .earth-label-main{
+        font-size:8px;
+
+        letter-spacing:5px;
+    }
+
+    .earth-label-sub{
+        font-size:6px;
+
+        letter-spacing:2px;
+    }
+
+    .control-hint{
+        bottom:18px;
+
+        font-size:6px;
+
+        letter-spacing:2px;
+    }
+
+    .search-button{
+        left:15px;
+        bottom:15px;
+
+        width:42px;
+        height:42px;
+
+        border-radius:14px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+button,
+a,
+input{
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+::selection{
+    background:
+        rgba(0,234,255,.30);
+}
+
+
+/* =========================================================
+   LOADING SCREEN
+   ========================================================= */
+
+.loader{
+    position:fixed;
+
+    inset:0;
+
+    z-index:999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    background:#02040a;
+
+    transition:
+        opacity .5s,
+        visibility .5s;
+}
+
+.loader.hide{
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+}
+
+.loader-orbit{
+    width:62px;
+    height:62px;
+
+    border-radius:50%;
+
+    border:
+        2px solid
+        rgba(255,255,255,.12);
+
+    border-top-color:
+        var(--cyan);
+
+    border-right-color:
+        var(--violet);
+
+    border-bottom-color:
+        var(--green);
+
+    animation:
+        loaderSpin 1s linear infinite;
+
+    box-shadow:
+        0 0 25px rgba(0,234,255,.20);
+}
+
+@keyframes loaderSpin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.loader-text{
+    margin-top:18px;
+
+    font-size:8px;
+
+    letter-spacing:5px;
+
+    color:
+        rgba(255,255,255,.55);
+}
+
+</style></head><body><div id="app"><!-- ===============================================
+     BACKGROUND
+================================================ -->
+
+<div class="space-layer stars"></div>
+<div class="space-layer stars-green"></div>
+<div class="space-layer stars-violet"></div>
+
+<div class="aurora"></div>
+
+
+<!-- ===============================================
+     TOP BAR
+================================================ -->
+
+<header class="topbar">
+
+    <div>
+
+        <div class="logo">
+            M POPAL TECH
+        </div>
+
+        <div class="logo-sub">
+            DIGITAL EARTH EXPERIENCE
+        </div>
+
+    </div>
+
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Open menu">
+
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+
+    </button>
+
+</header>
+
+
+<!-- ===============================================
+     EARTH
+================================================ -->
+
+<main id="earth-stage">
+
+    <div
+        id="earth-container">
+    </div>
+
+
+    <div class="earth-ring"></div>
+
+    <div class="earth-ring two"></div>
+
+    <div class="earth-ring three"></div>
+
+
+    <div class="edge-glow"></div>
+
+
+    <div class="earth-label">
+
+        <div class="earth-label-main">
+            360° EARTH
+        </div>
+
+        <div class="earth-label-sub">
+            TOUCH • DRAG • EXPLORE
+        </div>
+
+    </div>
+
+
+    <div class="control-hint">
+        DRAG TO ROTATE • PINCH TO ZOOM
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <button
+        class="search-button"
+        id="searchButton"
+        aria-label="Search">
+
+        ⌕
+
+    </button>
+
+
+    <section
+        class="search-panel"
+        id="searchPanel">
+
+        <div class="search-title">
+            SEARCH EARTH
+        </div>
+
+        <div class="search-row">
+
+            <input
+                class="search-input"
+                id="searchInput"
+                type="search"
+                autocomplete="off"
+                placeholder="Country, city or landmark...">
+
+            <button
+                class="search-go"
+                id="searchGo">
+                GO
+            </button>
+
+        </div>
+
+        <div
+            class="search-results"
+            id="searchResults">
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ===============================================
+     SIDE MENU
+================================================ -->
+
+<aside
+    class="menu-panel"
+    id="menuPanel">
+
+    <button
+        class="menu-close"
+        id="menuClose">
+        ×
+    </button>
+
+
+    <div class="menu-heading">
+        EXPLORE
+    </div>
+
+    <div class="menu-name">
+        M POPAL
+    </div>
+
+
+    <button
+        class="menu-item"
+        data-action="continents">
+        🌎 CONTINENTS
+    </button>
+
+
+    <button
+        class="menu-item"
+        data-action="places">
+        📍 IMPORTANT PLACES
+    </button>
+
+
+    <button
+        class="menu-item"
+        data-action="info">
+        🌐 EARTH INFORMATION
+    </button>
+
+
+    <button
+        class="menu-item"
+        data-action="controls">
+        👆 360° CONTROLS
+    </button>
+
+
+    <button
+        class="menu-item"
+        data-action="back">
+        ← BACK
+    </button>
+
+</aside>
+
+
+<!-- ===============================================
+     INFORMATION / CHAT STYLE PANEL
+================================================ -->
+
+<section
+    class="info-panel"
+    id="infoPanel">
+
+    <div class="info-top">
+
+        <div class="info-title">
+            EARTH INFORMATION
+        </div>
+
+        <button
+            class="info-close"
+            id="infoClose">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="info-grid">
+
+        <div class="info-card">
+            <b>CONTINENTS</b>
+            <span>
+                Asia • Africa • Europe • North America •
+                South America • Oceania • Antarctica
+            </span>
+        </div>
+
+
+        <div class="info-card">
+            <b>OCEANS</b>
+            <span>
+                Pacific • Atlantic • Indian • Southern • Arctic
+            </span>
+        </div>
+
+
+        <div class="info-card">
+            <b>EARTH</b>
+            <span>
+                Our planet is the third planet from the Sun
+                and has one natural satellite, the Moon.
+            </span>
+        </div>
+
+
+        <div class="info-card">
+            <b>EXPLORATION</b>
+            <span>
+                Drag the Earth to rotate it. Pinch or use
+                the mouse wheel to zoom.
+            </span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===============================================
+     LOADING
+================================================ -->
+
+<div
+    class="loader"
+    id="loader">
+
+    <div class="loader-orbit"></div>
+
+    <div class="loader-text">
+        M POPAL EARTH
+    </div>
+
+</div>
+
+</div><!-- =====================================================
+     THREE.JS IMPORT MAP
+====================================================== --><script type="importmap">
+{
+    "imports":{
+        "three":
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+
+        "three/addons/":
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+}
+</script><!-- =====================================================
+     MAIN APPLICATION
+====================================================== --><script type="module">
+
+import * as THREE
+from "three";
+
+import {
+    OrbitControls
+}
+from "three/addons/controls/OrbitControls.js";
+
+
+/* =====================================================
+   BASIC SETUP
+===================================================== */
+
+const container =
+    document.getElementById(
+        "earth-container"
+    );
+
+
+const scene =
+    new THREE.Scene();
+
+
+const camera =
+    new THREE.PerspectiveCamera(
+        42,
+        window.innerWidth /
+        window.innerHeight,
+        0.1,
+        100
+    );
+
+
+camera.position.set(
+    0,
+    0,
+    3.25
+);
+
+
+const renderer =
+    new THREE.WebGLRenderer({
+        antialias:true,
+        alpha:true,
+        powerPreference:"high-performance"
+    });
+
+
+renderer.setPixelRatio(
+    Math.min(
+        window.devicePixelRatio,
+        2
+    )
+);
+
+
+renderer.setSize(
+    window.innerWidth,
+    window.innerHeight
+);
+
+
+renderer.outputColorSpace =
+    THREE.SRGBColorSpace;
+
+
+container.appendChild(
+    renderer.domElement
+);
+
+
+/* =====================================================
+   EARTH
+===================================================== */
+
+const earthGroup =
+    new THREE.Group();
+
+scene.add(
+    earthGroup
+);
+
+
+const earthGeometry =
+    new THREE.SphereGeometry(
+        1,
+        128,
+        128
+    );
+
+
+const earthMaterial =
+    new THREE.MeshPhongMaterial({
+
+        color:0x087fae,
+
+        shininess:90,
+
+        specular:0x9defff
+
+    });
+
+
+const earth =
+    new THREE.Mesh(
+        earthGeometry,
+        earthMaterial
+    );
+
+
+earthGroup.add(
+    earth
+);
+
+
+/* =====================================================
+   EARTH MAP
+===================================================== */
+
+const textureLoader =
+    new THREE.TextureLoader();
+
+
+textureLoader.load(
+    "earth-map.svg",
+
+    function(texture){
+
+        texture.colorSpace =
+            THREE.SRGBColorSpace;
+
+        earthMaterial.map =
+            texture;
+
+        earthMaterial.needsUpdate =
+            true;
+
+    },
+
+    undefined,
+
+    function(error){
+
+        console.log(
+            "Earth map could not load:",
+            error
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ATMOSPHERE
+===================================================== */
+
+const atmosphereGeometry =
+    new THREE.SphereGeometry(
+        1.045,
+        96,
+        96
+    );
+
+
+const atmosphereMaterial =
+    new THREE.MeshBasicMaterial({
+
+        color:0x00eaff,
+
+        transparent:true,
+
+        opacity:.10,
+
+        side:THREE.BackSide
+
+    });
+
+
+const atmosphere =
+    new THREE.Mesh(
+        atmosphereGeometry,
+        atmosphereMaterial
+    );
+
+
+earthGroup.add(
+    atmosphere
+);
+
+
+/* =====================================================
+   LIGHTING
+===================================================== */
+
+const ambient =
+    new THREE.AmbientLight(
+        0x8befff,
+        1.7
+    );
+
+
+scene.add(
+    ambient
+);
+
+
+const sun =
+    new THREE.DirectionalLight(
+        0xffffff,
+        3.8
+    );
+
+
+sun.position.set(
+    -3,
+    2,
+    4
+);
+
+
+scene.add(
+    sun
+);
+
+
+const cyanLight =
+    new THREE.PointLight(
+        0x00eaff,
+        3.5,
+        8
+    );
+
+
+cyanLight.position.set(
+    -3,
+    0,
+    3
+);
+
+
+scene.add(
+    cyanLight
+);
+
+
+const violetLight =
+    new THREE.PointLight(
+        0x9d5cff,
+        2.5,
+        8
+    );
+
+
+violetLight.position.set(
+    3,
+    -2,
+    1
+);
+
+
+scene.add(
+    violetLight
+);
+
+
+/* =====================================================
+   CONTROLS
+===================================================== */
+
+const controls =
+    new OrbitControls(
+        camera,
+        renderer.domElement
+    );
+
+
+controls.enableDamping =
+    true;
+
+
+controls.dampingFactor =
+    .055;
+
+
+controls.enablePan =
+    false;
+
+
+controls.enableZoom =
+    true;
+
+
+controls.minDistance =
+    2.05;
+
+
+controls.maxDistance =
+    5;
+
+
+controls.rotateSpeed =
+    .65;
+
+
+controls.zoomSpeed =
+    .75;
+
+
+controls.target.set(
+    0,
+    0,
+    0
+);
+
+
+/* =====================================================
+   RESIZE
+===================================================== */
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        camera.aspect =
+            window.innerWidth /
+            window.innerHeight;
+
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(
+            window.innerWidth,
+            window.innerHeight
+        );
+
+        renderer.setPixelRatio(
+            Math.min(
+                window.devicePixelRatio,
+                2
+            )
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+function animate(){
+
+    requestAnimationFrame(
+        animate
+    );
+
+    controls.update();
+
+    renderer.render(
+        scene,
+        camera
+    );
+
+}
+
+
+animate();
+
+
+/* =====================================================
+   LOADER
+===================================================== */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        setTimeout(
+            function(){
+
+                document
+                    .getElementById("loader")
+                    .classList.add("hide");
+
+            },
+            650
+        );
+
+    }
+);
+
+
+/* =====================================================
+   SEARCH DATA
+   Temporary built-in data.
+   Later connected to earth-data.js.
+===================================================== */
+
+const searchData = [
+
+    {
+        name:"Asia",
+        type:"Continent"
+    },
+
+    {
+        name:"Africa",
+        type:"Continent"
+    },
+
+    {
+        name:"Europe",
+        type:"Continent"
+    },
+
+    {
+        name:"North America",
+        type:"Continent"
+    },
+
+    {
+        name:"South America",
+        type:"Continent"
+    },
+
+    {
+        name:"Oceania",
+        type:"Continent"
+    },
+
+    {
+        name:"Antarctica",
+        type:"Continent"
+    },
+
+    {
+        name:"Tokyo",
+        type:"Japan • City"
+    },
+
+    {
+        name:"New York",
+        type:"United States • City"
+    },
+
+    {
+        name:"London",
+        type:"United Kingdom • City"
+    },
+
+    {
+        name:"Dubai",
+        type:"United Arab Emirates • City"
+    },
+
+    {
+        name:"Paris",
+        type:"France • City"
+    },
+
+    {
+        name:"Mount Everest",
+        type:"Nepal / China • Landmark"
+    },
+
+    {
+        name:"Great Wall of China",
+        type:"China • Landmark"
+    },
+
+    {
+        name:"Eiffel Tower",
+        type:"France • Landmark"
+    },
+
+    {
+        name:"Burj Khalifa",
+        type:"United Arab Emirates • Landmark"
+    }
+
+];
+
+
+const searchButton =
+    document.getElementById(
+        "searchButton"
+    );
+
+
+const searchPanel =
+    document.getElementById(
+        "searchPanel"
+    );
+
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+
+const searchGo =
+    document.getElementById(
+        "searchGo"
+    );
+
+
+const searchResults =
+    document.getElementById(
+        "searchResults"
+    );
+
+
+searchButton.onclick =
+function(){
+
+    searchPanel.classList.toggle(
+        "open"
+    );
+
+    if(
+        searchPanel.classList.contains(
+            "open"
+        )
+    ){
+
+        setTimeout(
+            function(){
+
+                searchInput.focus();
+
+            },
+            200
+        );
+
+    }
+
+};
+
+
+function performSearch(){
+
+    const query =
+        searchInput.value
+        .trim()
+        .toLowerCase();
+
+
+    searchResults.innerHTML =
+        "";
+
+
+    if(!query){
+
+        return;
+
+    }
+
+
+    const matches =
+        searchData.filter(
+            item =>
+                item.name
+                .toLowerCase()
+                .includes(query)
+        );
+
+
+    if(!matches.length){
+
+        searchResults.innerHTML =
+            `<div class="search-result">
+                <strong>No result</strong>
+                <span>Try another country, city or landmark.</span>
+            </div>`;
+
+        return;
+
+    }
+
+
+    matches.forEach(
+        item => {
+
+            const result =
+                document.createElement(
+                    "div"
+                );
+
+
+            result.className =
+                "search-result";
+
+
+            result.innerHTML =
+                `
+                <strong>
+                    ${item.name}
+                </strong>
+
+                <span>
+                    ${item.type}
+                </span>
+                `;
+
+
+            result.onclick =
+            function(){
+
+                searchInput.value =
+                    item.name;
+
+                searchPanel.classList.remove(
+                    "open"
+                );
+
+            };
+
+
+            searchResults.appendChild(
+                result
+            );
+
+        }
+    );
+
+}
+
+
+searchGo.onclick =
+performSearch;
+
+
+searchInput.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Enter"
+        ){
+
+            performSearch();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+const menuButton =
+    document.getElementById(
+        "menuButton"
+    );
+
+
+const menuPanel =
+    document.getElementById(
+        "menuPanel"
+    );
+
+
+const menuClose =
+    document.getElementById(
+        "menuClose"
+    );
+
+
+menuButton.onclick =
+function(){
+
+    menuPanel.classList.add(
+        "open"
+    );
+
+};
+
+
+menuClose.onclick =
+function(){
+
+    menuPanel.classList.remove(
+        "open"
+    );
+
+};
+
+
+/* =====================================================
+   INFO PANEL
+===================================================== */
+
+const infoPanel =
+    document.getElementById(
+        "infoPanel"
+    );
+
+
+const infoClose =
+    document.getElementById(
+        "infoClose"
+    );
+
+
+infoClose.onclick =
+function(){
+
+    infoPanel.classList.remove(
+        "open"
+    );
+
+};
+
+
+/* =====================================================
+   MENU ACTIONS
+===================================================== */
+
+document
+    .querySelectorAll(
+        ".menu-item"
+    )
+    .forEach(
+        item => {
+
+            item.addEventListener(
+                "click",
+                function(){
+
+                    const action =
+                        item.dataset.action;
+
+
+                    if(
+                        action === "info"
+                    ){
+
+                        infoPanel.classList.add(
+                            "open"
+                        );
+
+                        menuPanel.classList.remove(
+                            "open"
+                        );
+
+                    }
+
+
+                    if(
+                        action === "continents"
+                    ){
+
+                        infoPanel.classList.add(
+                            "open"
+                        );
+
+                        menuPanel.classList.remove(
+                            "open"
+                        );
+
+                    }
+
+
+                    if(
+                        action === "places"
+                    ){
+
+                        infoPanel.classList.add(
+                            "open"
+                        );
+
+                        menuPanel.classList.remove(
+                            "open"
+                        );
+
+                    }
+
+
+                    if(
+                        action === "controls"
+                    ){
+
+                        infoPanel.classList.add(
+                            "open"
+                        );
+
+                        menuPanel.classList.remove(
+                            "open"
+                        );
+
+                    }
+
+
+                    if(
+                        action === "back"
+                    ){
+
+                        menuPanel.classList.remove(
+                            "open"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            menuPanel.classList.remove(
+                "open"
+            );
+
+            infoPanel.classList.remove(
+                "open"
+            );
+
+            searchPanel.classList.remove(
+                "open"
+            );
+
+        }
+
+    }
+);
+
+</script></body>
+</html>
